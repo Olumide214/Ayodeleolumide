@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayodele Olumide | Product Engineer</title>
+    <title>Ayodele Olumide | Product Engineer & Virtual Assistant</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -38,12 +38,43 @@
         }
 
         .container { 
-            max-width: 800px; 
+            max-width: 850px; 
             margin: 0 auto; 
             padding: 80px 20px; 
         }
 
+        /* Header & Flexbox for Profile Picture */
         header { margin-bottom: 80px; }
+        
+        .header-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .profile-img-container {
+            flex-shrink: 0;
+        }
+
+        .profile-pic {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--card-bg);
+            box-shadow: 0 10px 30px rgba(255, 133, 27, 0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
         
         h1 { 
             color: var(--white); 
@@ -175,6 +206,15 @@
             border-top: 1px solid var(--card-bg);
         }
 
+        @media (max-width: 768px) {
+            .header-wrapper {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .profile-pic { width: 180px; height: 180px; }
+            .bio { margin: 20px auto 0; }
+        }
+
         @media (max-width: 600px) {
             h1 { font-size: 2rem; }
             .container { padding: 40px 20px; }
@@ -185,15 +225,55 @@
 
 <div class="container">
     <header>
-        <span style="color: var(--gold); font-family: monospace;">Hi, my name is</span>
-        <h1>Ayodele Olumide.</h1>
-        <span class="subtitle">I build high-stakes digital infrastructure.</span>
-        <p class="bio">
-            A <strong>Product Engineer</strong> specializing in full-scale PHP architecture. I focus on creating secure banking systems and complex marketplaces that prioritize data integrity and user experience.
-        </p>
+        <div class="header-wrapper">
+            <div class="header-text">
+                <span style="color: var(--gold); font-family: monospace;">Hi, my name is</span>
+                <h1>Ayodele Olumide.</h1>
+                <span class="subtitle">Product Engineer & Certified Virtual Assistant</span>
+                <p class="bio">
+                    I build high-stakes digital infrastructure and provide exceptional remote administrative support. [span_0](start_span)As a detail-oriented Audio Evaluation Specialist[span_0](end_span) [span_1](start_span)with native-level fluency in Nigerian English[span_1](end_span)[span_2](start_span), I leverage strong analytical assessment skills[span_2](end_span) [span_3](start_span)to bridge the gap between complex PHP backend architecture and highly accurate, quality-focused delivery[span_3](end_span).
+                </p>
+            </div>
+            <div class="profile-img-container">
+                <img src="image.png" alt="Ayodele Olumide Babatatunde" class="profile-pic">
+            </div>
+        </div>
     </header>
 
-    <h2 class="section-title">Featured Work</h2>
+    <h2 class="section-title">Virtual Assistance & Remote Support</h2>
+    
+    <div class="project-card">
+        <div class="tag-container">
+            <span class="tag">Virtual Assistant</span>
+            <span class="tag">Customer Support</span>
+            <span class="tag">Audio Evaluation</span>
+        </div>
+        <h3>Freelance Support Specialist</h3>
+        <p class="project-desc">
+            [span_4](start_span)I manage up to 50+ customer interactions weekly, utilizing active listening and communication clarity to resolve complex user requests[span_4](end_span). [span_5](start_span)I carefully review client requirements and feedback for accurate, timely delivery[span_5](end_span). 
+        </p>
+        <ul style="color: var(--text-dim); font-size: 0.95rem; padding-left: 20px; margin-bottom: 0;">
+            [span_6](start_span)<li>Core competencies include data accuracy, quality control, and seamless remote work collaboration[span_6](end_span).</li>
+            [span_7](start_span)<li>Proficient with Google Workspace, Microsoft Office, and Digital Evaluation Tools[span_7](end_span).</li>
+            [span_8](start_span)<li>Deep understanding of Yoruba and urban Nigerian speech patterns[span_8](end_span)[span_9](start_span), allowing me to accurately identify speech naturalness and accent distinctions[span_9](end_span).</li>
+            [span_10](start_span)<li>B.Sc. in Criminology from Adekunle Ajasin University (2024)[span_10](end_span)[span_11](start_span), underpinning my objective assessment ability, strong concentration, and strict consistency in following guidelines[span_11](end_span).</li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">Engineering & Featured Work</h2>
+
+    <div class="project-card">
+        <div class="tag-container">
+            <span class="tag">Marketplace</span>
+            <span class="tag">Escrow</span>
+            <span class="tag">Product</span>
+        </div>
+        <h3>Errandsfinder</h3>
+        <p class="project-desc">
+            A service marketplace platform featuring a custom-built digital wallet and escrow engine. Designed to facilitate secure transactions between service seekers and providers.
+        </p>
+        <a href="https://errandsfinder.com" class="btn" target="_blank">View Platform</a>
+    </div>
 
     <div class="project-card">
         <div class="tag-container">
@@ -207,57 +287,43 @@
         </p>
         <a href="https://brightlinebank.com" class="btn" target="_blank">Explore System</a>
     </div>
-
-    <div class="project-card">
-        <div class="tag-container">
-            <span class="tag">Marketplace</span>
-            <span class="tag">Escrow</span>
-            <span class="tag">Product</span>
-        </div>
-        <h3>ErrandFinder</h3>
-        <p class="project-desc">
-            A service marketplace platform featuring a custom-built digital wallet and escrow engine. Designed to facilitate secure transactions between service seekers and providers.
-        </p>
-        <a href="https://errandfinder.com" class="btn" target="_blank">View Platform</a>
-    </div>
     
     <div class="project-card">
-    <div class="tag-container">
-        <span class="tag">Healthcare</span>
-        <span class="tag">Medical Services</span>
-        <span class="tag">Appointments</span>
+        <div class="tag-container">
+            <span class="tag">Healthcare</span>
+            <span class="tag">Medical Services</span>
+            <span class="tag">Appointments</span>
+        </div>
+        <h3>Bisi Akindele Medical Clinic</h3>
+        <p class="project-desc">
+            A modern medical clinic website designed to provide accessible healthcare information, showcase medical services, and simplify patient appointment bookings. Built to enhance patient engagement and improve the clinic’s digital presence in Akure.
+        </p>
+        <a href="https://bisiakindelemedicalclinic.com" class="btn" target="_blank">Visit Website</a>
     </div>
-    <h3>Bisi Akindele Medical Clinic</h3>
-    <p class="project-desc">
-        A modern medical clinic website designed to provide accessible healthcare information, showcase medical services, and simplify patient appointment bookings. Built to enhance patient engagement and improve the clinic’s digital presence in Akure.
-    </p>
-    <a href="https://bisiakindelemedicalclinic.com" class="btn" target="_blank">Visit Website</a>
-</div>
 
     <h2 class="section-title">Technical Toolkit</h2>
     <div class="skills-grid">
         <div class="skill-item">PHP (Laravel)</div>
         <div class="skill-item">MySQL</div>
         <div class="skill-item">JavaScript</div>
-        <div class="skill-item">System Arch</div>
+        <div class="skill-item">Data Documentation</div>
         <div class="skill-item">API Security</div>
-        <div class="skill-item">AI Workflows</div>
+        <div class="skill-item">QA Processes</div>
         <div class="skill-item">UI/UX Design</div>
         <div class="skill-item">Git/Linux</div>
     </div>
 
    <div class="contact-box">
-    <h2>Ready to build?</h2>
-    <p>Currently accepting new projects in Engineering and Design.</p>
+    <h2>Ready to build or scale your team?</h2>
+    <p>Currently accepting new projects in Engineering, Virtual Assistance, and Support.</p>
     <br>
-    <a href="mailto:ayoolumide@gmail.com" class="btn" style="background: var(--orange); color: white; margin-bottom: 10px;">Say Hello</a>
+    <a href="mailto:ayoolumide214@gmail.com" class="btn" style="background: var(--orange); color: white; margin-bottom: 10px;">Say Hello</a>
     
     <a href="https://wa.me/2349035010962" class="btn" style="border-color: var(--gold); color: var(--gold); margin-bottom: 10px;">WhatsApp Me</a>
 </div>
 
-
     <footer>
-        Designed & Built by Ayodele Olumide &copy; 2026
+        Designed & Built by Ayodele Olumide Babatatunde &copy; 2026
     </footer>
 </div>
 
