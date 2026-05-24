@@ -9,7 +9,7 @@
         :root {
             --navy: #060d1a;
             --light-navy: #0a192f;
-            --card-bg: #112240;
+            --card-bg: rgba(17, 34, 64, 0.7); /* Slightly transparent for the new background */
             --gold: #FFD700;
             --orange: #FF851B;
             --text-main: #ccd6f6;
@@ -20,7 +20,9 @@
         * { box-sizing: border-box; transition: all 0.25s ease; }
 
         body {
-            background-color: var(--navy);
+            /* Unique dark gradient background */
+            background: linear-gradient(135deg, #02040a 0%, #0a192f 100%);
+            background-attachment: fixed;
             color: var(--text-main);
             font-family: 'Plus Jakarta Sans', sans-serif;
             line-height: 1.6;
@@ -28,19 +30,41 @@
             overflow-x: hidden;
         }
 
-        /* Subtle background glow */
-        body::before {
+        /* Unique animated mesh/glow background */
+        body::before, body::after {
             content: "";
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 0%, rgba(255, 133, 27, 0.05) 0%, transparent 50%);
+            border-radius: 50%;
+            filter: blur(120px);
             z-index: -1;
+            animation: float 15s ease-in-out infinite alternate;
         }
 
+        body::before {
+            top: -10%; left: -10%;
+            width: 50vw; height: 50vw;
+            background: rgba(255, 133, 27, 0.08); /* Soft orange ambient glow */
+        }
+
+        body::after {
+            bottom: -10%; right: -10%;
+            width: 40vw; height: 40vw;
+            background: rgba(255, 215, 0, 0.05); /* Soft gold ambient glow */
+            animation-delay: -7.5s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 30px) scale(1.1); }
+        }
+
+        /* Glassmorphism effect for the container to blend with the background */
         .container { 
             max-width: 850px; 
             margin: 0 auto; 
             padding: 80px 20px; 
+            position: relative;
+            z-index: 1;
         }
 
         /* Header & Flexbox for Profile Picture */
@@ -66,7 +90,7 @@
             height: 240px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--card-bg);
+            border: 4px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px rgba(255, 133, 27, 0.15);
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
@@ -111,13 +135,15 @@
             content: "";
             height: 1px;
             flex-grow: 1;
-            background: var(--card-bg);
+            background: rgba(255, 255, 255, 0.1);
             margin-left: 20px;
         }
 
         /* Project Card Styling */
         .project-card {
             background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 35px;
             border-radius: 16px;
             margin-bottom: 25px;
@@ -177,16 +203,18 @@
 
         .skill-item {
             background: rgba(17, 34, 64, 0.5);
+            backdrop-filter: blur(5px);
             padding: 15px;
             border-radius: 8px;
             text-align: center;
             font-size: 0.9rem;
-            border: 1px solid transparent;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .skill-item:hover {
             border-color: var(--gold);
             color: var(--gold);
+            transform: translateY(-3px);
         }
 
         /* Contact Section */
@@ -194,6 +222,10 @@
             text-align: center;
             padding: 60px 20px;
             margin-top: 80px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
         }
 
         .contact-box h2 { color: var(--white); font-size: 2rem; }
@@ -203,7 +235,8 @@
             padding: 40px 0;
             font-size: 0.8rem; 
             color: var(--text-dim);
-            border-top: 1px solid var(--card-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
         }
 
         @media (max-width: 768px) {
@@ -231,7 +264,7 @@
                 <h1>Ayodele Olumide.</h1>
                 <span class="subtitle">Product Engineer & Certified Virtual Assistant</span>
                 <p class="bio">
-                    I build high-stakes digital infrastructure and provide exceptional remote administrative support. [span_0](start_span)As a detail-oriented Audio Evaluation Specialist[span_0](end_span) [span_1](start_span)with native-level fluency in Nigerian English[span_1](end_span)[span_2](start_span), I leverage strong analytical assessment skills[span_2](end_span) [span_3](start_span)to bridge the gap between complex PHP backend architecture and highly accurate, quality-focused delivery[span_3](end_span).
+                    I build high-stakes digital infrastructure and provide exceptional remote administrative support. As a detail-oriented Audio Evaluation Specialist with native-level fluency in Nigerian English, I leverage strong analytical assessment skills to bridge the gap between complex PHP backend architecture and highly accurate, quality-focused delivery.
                 </p>
             </div>
             <div class="profile-img-container">
@@ -250,13 +283,13 @@
         </div>
         <h3>Freelance Support Specialist</h3>
         <p class="project-desc">
-            [span_4](start_span)I manage up to 50+ customer interactions weekly, utilizing active listening and communication clarity to resolve complex user requests[span_4](end_span). [span_5](start_span)I carefully review client requirements and feedback for accurate, timely delivery[span_5](end_span). 
+            I manage up to 50+ customer interactions weekly, utilizing active listening and communication clarity to resolve complex user requests. I carefully review client requirements and feedback for accurate, timely delivery. 
         </p>
         <ul style="color: var(--text-dim); font-size: 0.95rem; padding-left: 20px; margin-bottom: 0;">
-            [span_6](start_span)<li>Core competencies include data accuracy, quality control, and seamless remote work collaboration[span_6](end_span).</li>
-            [span_7](start_span)<li>Proficient with Google Workspace, Microsoft Office, and Digital Evaluation Tools[span_7](end_span).</li>
-            [span_8](start_span)<li>Deep understanding of Yoruba and urban Nigerian speech patterns[span_8](end_span)[span_9](start_span), allowing me to accurately identify speech naturalness and accent distinctions[span_9](end_span).</li>
-            [span_10](start_span)<li>B.Sc. in Criminology from Adekunle Ajasin University (2024)[span_10](end_span)[span_11](start_span), underpinning my objective assessment ability, strong concentration, and strict consistency in following guidelines[span_11](end_span).</li>
+            <li>Core competencies include data accuracy, quality control, and seamless remote work collaboration.</li>
+            <li>Proficient with Google Workspace, Microsoft Office, and Digital Evaluation Tools.</li>
+            <li>Deep understanding of Yoruba and urban Nigerian speech patterns, allowing me to accurately identify speech naturalness and accent distinctions.</li>
+            <li>B.Sc. in Criminology from Adekunle Ajasin University (2024), underpinning my objective assessment ability, strong concentration, and strict consistency in following guidelines.</li>
         </ul>
     </div>
 
